@@ -156,7 +156,7 @@ sudo dhclient vpn_virt0
 ```
 9. Add route to vpn for all traffic
 ```
-sudo ip route add 5.2.64.59/32 via 192.168.0.1 dev eth0
+sudo ip route add 192.168.0.132/32 via 192.168.0.1 dev eth0
 ```
 
 TODO:
