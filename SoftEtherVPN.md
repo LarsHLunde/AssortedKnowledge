@@ -86,8 +86,18 @@ and you can change it to your personal web address before using it.
 
 ## Clients
 
-One of the strongest aspects of the SoftEtherVPN is how trivial it is to connect to them.
+One of the strongest aspects of the SoftEtherVPN is how trivial it is to connect to them,
+I've connected very intuitively to my personal VPN with MacOS, Windows and Android.
 
-Windows:
+In this part I will cover 2 scenarios that are a bit more complex, but equally useful.
+Instructions for Windows are towards the bottom.
 
+### Gnome network manager
+
+
+### Windows
+
+![Windows VPN Config](https://raw.githubusercontent.com/LarsHLunde/AssortedKnowledge/main/resources/vpn-win.png)
+
+![Windows VPN Config2](https://raw.githubusercontent.com/LarsHLunde/AssortedKnowledge/main/resources/vpn-win2.png)
 
