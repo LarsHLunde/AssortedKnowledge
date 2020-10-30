@@ -92,10 +92,108 @@ I've connected very intuitively to my personal VPN with MacOS, Windows and Andro
 In this part I will cover 2 scenarios that are a bit more complex, but equally useful.
 Instructions for Windows are towards the bottom.
 
+### CLI only
+
+Download the apropriate client package from http://www.softether-download.com/files/softether/
+For example: 
+http://www.softether-download.com/files/softether/v4.34-9745-rtm-2020.04.05-tree/Linux/SoftEther_VPN_Client/64bit_-_Intel_x64_or_AMD64/softether-vpnclient-v4.34-9745-rtm-2020.04.05-linux-x64-64bit.tar.gz
+
+untar the package:
+
+```tar xf softether-vpnclient-*```
+
+build and deploy
+```
+cd vpnclient && sudo make
+cd .. && sudo mv vpnclient /usr/local && cd /usr/local/vpnclient/
+sudo chmod 600 * && sudo chmod 700 vpnclient && sudo chmod 700 vpncmd
+```
+
+Time to start the client and configure the connection
+
+```
+sudo ./vpnclient start
+sudo ./vpncmd
+```
+1. Enter **2** for the VPN client, press enter
+2. First we need to make a virtual NIC to use with **NicCreate**, we'll call it virt0
+3. Create an account with **AccountCreate**
+```
+Name of VPN Connection Setting: local
+Destination VPN Server Host Name and Port Number: 192.168.0.132:443
+Destination Virtual Hub Name: DEFAULT
+Connecting User Name: pyro
+Used Virtual Network Adapter Name: virt0
+```
+Use your own selected setting name, hostname/ip and username,
+but copy the port, hub name and adapter (unless you set it up differently).
+4. The password for the account is set seperatley with **AccountPasswordSet**
+when asking for standard or radius, just enter standard, time to test if you can connect.
+5. Time to test if you can connect: **AccountConnect**
+6. Check if you are connected (can take some seconds) with **AccountList**
+if it says connected, you are connected.
+```
+VPN Client>AccountList
+AccountList command - Get List of VPN Connection Settings
+Item                        |Value
+----------------------------+--------------------------------------------
+VPN Connection Setting Name |local
+Status                      |Connected
+VPN Server Hostname         |192.168.0.132:443 (Direct TCP/IP Connection)
+Virtual Hub                 |DEFAULT
+Virtual Network Adapter Name|virt0
+The command completed successfully.
+```
+7. Optional
+Set the vpnclient to autoconnect when you start the vpnclient.
+Mind you, the vpnclient does not currently autostart on boot.
+Use the command **AccountStartupSet** to start a vpn connection when you start the server.
+Unlike what you are most likely used to, the computer will **NOT** automatically
+route all your data through your new connection, or even give it an IP.
+8. Configure dhcp for you new interface:
+```
+sudo dhclient vpn_virt0
+```
+9. Add route to vpn for all traffic
+```
+sudo ip route add 5.2.64.59/32 via 192.168.0.1 dev eth0
+```
+
+TODO:
+```
+/usr/local/vpnclient/vpnclient start && dhclient vpn_virt0 && ip route add 192.168.0.132/32 via 192.168.0.1 dev ens33
+dhclient -r vpn_virt0 && /usr/local/vpnclient/vpnclient stop && ip route del 192.168.0.132 via 192.168.0.1 dev ens33 && ifdown ens33 && ifup ens33
+```
+
+Service!
+
 ### Gnome network manager
-TODO : INSTALL instructions
+To install required packages:
 
+```
+sudo apt install network-manager-l2tp-gnome
+```
 
+You may need to log in and back out for the button to appear.
+
+Configure a new VPN :
+
+![Gnome VPN Config0](https://raw.githubusercontent.com/LarsHLunde/AssortedKnowledge/main/resources/vpn-gnome0.png)
+
+and write the VPN address, username and password in to the form.
+
+![Gnome VPN Config1](https://raw.githubusercontent.com/LarsHLunde/AssortedKnowledge/main/resources/vpn-gnome1.png)
+
+Then for the tricky part, click IPsec settings marked in red.
+
+![Gnome VPN Config2](https://raw.githubusercontent.com/LarsHLunde/AssortedKnowledge/main/resources/vpn-gnome2.png)
+
+Write pre-shared key you wrote previously in to the apropriate field,
+and enter 
+```
+aes128-sha1-modp2048!
+```
+In to both Phase algorithms, it will not work without it.
 
 ### Windows
 
