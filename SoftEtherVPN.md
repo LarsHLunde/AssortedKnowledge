@@ -93,6 +93,8 @@ In this part I will cover 2 scenarios that are a bit more complex, but equally u
 Instructions for Windows are towards the bottom.
 
 ### Gnome network manager
+TODO : INSTALL instructions
+
 
 
 ### Windows
