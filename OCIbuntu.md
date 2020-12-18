@@ -27,5 +27,5 @@ sudo reboot
 
 ## Install basics
 ```
-sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-ping
+sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-ping policykit-1
 ```
