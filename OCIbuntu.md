@@ -1,11 +1,16 @@
-# Purge cloud-init
+## Set hostname
+```
+sudo hostnamectl set-hostname example.com
+```
+
+## Purge cloud-init
 ```
 echo 'datasource_list: [ None ]' | sudo -s tee /etc/cloud/cloud.cfg.d/90_dpkg.cfg 
 sudo apt-get purge cloud-init -y
 sudo rm -rf /etc/cloud/; sudo rm -rf /var/lib/cloud/ 
 ```
 
-# Open networking
+## Open networking
 ```
 sudo iptables -P INPUT ACCEPT 
 sudo iptables -P OUTPUT ACCEPT 
@@ -13,12 +18,14 @@ sudo iptables -P FORWARD ACCEPT
 sudo iptables -F 
 ```
 
-# Update and reboot
+## Update and reboot
 ```
 sudo apt update 
 sudo apt upgrade -y
 sudo reboot
 ```
 
-# Install basics
-
+## Install basics
+```
+sudo apt install build-essential telnet netcat net-tools 
+```
