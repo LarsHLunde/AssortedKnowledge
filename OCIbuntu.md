@@ -29,3 +29,9 @@ sudo reboot
 ```
 sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-ping policykit-1 lsof
 ```
+## Wireguard
+Use the agristan script, then make some alterations to /etc/wireguard/wg0.conf
+```
+PostUp = iptables -I INPUT 5 -p udp --dport 55555 -j ACCEPT; iptables -I FORWARD 1 -i ens3 -o wg0 -j ACCEPT; iptables -I FORWARD 2 -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o ens3 -j MASQUERADE; ip6tables -A FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -A POSTROUTING -o ens3 -j MASQUERADE
+PostDown = iptables -D -p udp --dport 55555 -j ACCEPT: iptables -D FORWARD -i ens3 -o wg0 -j ACCEPT; iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o ens3 -j MASQUERADE; ip6tables -D FORWARD -i wg0 -j ACCEPT; ip6tables -t nat -D POSTROUTING -o ens3 -j MASQUERADE
+```
