@@ -127,10 +127,10 @@ Used Virtual Network Adapter Name: virt0
 ```
 Use your own selected setting name, hostname/ip and username,
 but copy the port, hub name and adapter (unless you set it up differently).
-4. The password for the account is set seperatley with **AccountPasswordSet**
+4. The password for the account is set seperatley with **AccountPasswordSet** \
 when asking for standard or radius, just enter standard, time to test if you can connect.
 5. Time to test if you can connect: **AccountConnect**
-6. Check if you are connected (can take some seconds) with **AccountList**
+6. Check if you are connected (can take some seconds) with **AccountList** \
 if it says connected, you are connected.
 ```
 VPN Client>AccountList
