@@ -27,7 +27,7 @@ sudo reboot
 
 ## Install basics
 ```
-sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-ping policykit-1 lsof dialog apt-utils
+sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-ping policykit-1 lsof dialog apt-utils software-properties-common
 ```
 ## Wireguard
 Use the agristan script, then make some alterations to /etc/wireguard/wg0.conf
