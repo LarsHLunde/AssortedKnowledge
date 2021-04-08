@@ -10,8 +10,9 @@ Common options :
 3. h : Human readable : Dynamically changes file transfer speeds and sizes to MB/GB/etc
 4. z : Compress : Compress tranfer hopefully to save time and bytes
 5. e : Specify remote shell : Used mostly for running rsync over ssh
-6. P : Progress : Show progress, not the best, limited support
-7. --info=progress2 : Progress : Shows progress, looks better, better support
+7. P : Progress : Show progress, not the best, limited support
+8. --del : Delete : Remove any files and folders in dest not on source side
+9. --info=progress2 : Progress : Shows progress, looks better, better support
 
 
 ## Some examples
@@ -44,6 +45,12 @@ rsync -avh -e "ssh -o IdentityFile=./mycert" pyro@example.com:stuff/things ./
 ```
 But you can also add whatever other options you want to it, same syntax
 
+### Rsync deleting old files
+```
+rsync -avh --del /root/datafiles/ /backups/datafiles/
+``` 
+Everything in /root/datafiles/ will be put in /backups/datafiles/ \
+deleting all files and folders not on the source side.
 
 ## A word about compression
 Compressing in-transit data is not only common, it's a wonderful idea. \
