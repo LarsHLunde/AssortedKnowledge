@@ -40,7 +40,7 @@ rsync -avh -e "ssh -i ./mycert" pyro@example.com:stuff/things ./
 Everything in /home/pyro/stuff/things will be copied in to ./things
 I've noticed in that some versions you have to use a modification:
 ```
-rsync -avh -e "ssh -o IdentityFile=./master" pyro@example.com:stuff/things ./
+rsync -avh -e "ssh -o IdentityFile=./mycert" pyro@example.com:stuff/things ./
 ```
 But you can also add whatever other options you want to it, same syntax
 
