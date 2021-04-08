@@ -46,18 +46,18 @@ But you can also add whatever other options you want to it, same syntax
 
 
 ## A word about compression
-Compressing in-transit data is not only common, it's a wonderful idea.
-More sites that you probably realize use gzip compression to send website data to you.
+Compressing in-transit data is not only common, it's a wonderful idea. \
+More sites that you probably realize use gzip compression to send website data to you. \
 
-In rsync, it uses the zip librar to compress data before sending it,
-and by default at a compression grade of 6, which is the linux default for the library.
+In rsync, it uses the zip librar to compress data before sending it, \
+and by default at a compression grade of 6, which is the linux default for the library. \
 
-This does however mean that for the duration of the transfer, the sending machine
-will have a core pinned to compress the data, and data will only be transferred as fast as it can compress.
-In my testing, the throughput of the algorithm is somewhere between 20-30MB/s.
+This does however mean that for the duration of the transfer, the sending machine \
+will have a core pinned to compress the data, and data will only be transferred as fast as it can compress. \
+In my testing, the throughput of the algorithm is somewhere between 20-30MB/s. \
 
-If you will not be trnasferring over that speed, you probably should use compression,
+If you will not be trnasferring over that speed, you probably should use compression, \
 if not, it will only make things slower. \
-I will do further testing on the subject, and make a matrix,
-but using compression is severely over represented in guides and examples online,
-and most networks can transfer well over 30MB/s.
+I will do further testing on the subject, and make a matrix, \
+but using compression is severely over represented in guides and examples online, \
+and most networks can transfer well over 30MB/s. \
