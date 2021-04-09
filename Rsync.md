@@ -55,19 +55,19 @@ deleting all files and folders not on the source side.
 
 ## A word about compression
 Compressing in-transit data is not only common, it's a wonderful idea. \
-More sites that you probably realize use gzip compression to send website data to you.
+More sites than you probably realize use gzip compression to send website data to you.
 
-In rsync, it uses the zip librar to compress data before sending it, \
-and by default at a compression grade of 6, which is the linux default for the library.
+In rsync, it uses the zip libraru to compress data before sending it, \
+and by default at a compression grade of 6, which is set in the library source code.
 
 This does however mean that for the duration of the transfer, the sending machine \
 will have a core pinned to compress the data, and data will only be transferred as fast as it can compress.
 In my testing, the throughput of the algorithm is somewhere between 20-80MB/s.
 
-If you will not be trnasferring over that speed, you probably should use compression, \
+If you will not be tramsferring over that speed, you probably should use compression, \
 if not, it will only make things slower.
 
-I will do further testing on the subject, and make a matrix, \
+My testing will follow, \
 but using compression is severely over represented in guides and examples online, \
 and most networks can transfer well over 80MB/s and much more when done locally.
 
@@ -117,13 +117,13 @@ it's of a large enough size to deplete any kind of cache and is somewhat compres
 ### Conclusion
 
 Compression in all forms have heavy penalties and very limited return on compression level, \
-I have yet to see any exceptions to this rule with this or any other compression.
+I have yet to see any exceptions to this rule with this or any other compression algorithm.
 
-So if your uncompressed transfer speed is under 60MB/s, and have CPU power to spare, \
+If your uncompressed transfer speed is under 60MB/s, and have CPU power to spare, \
 you can save some minutes of transfer speed with compression level 1.
 
-I can see there being some suecases for compression level 1, but not really anything above it.
-Another thing to keep in mind is that the CPU used in the example is getting on a bit, \
+I can see there being some usecases for compression level 1, but not really anything above it.
+Another thing to keep in mind is that the CPU used in the example is quite old, \
 and the gap between it and the current CPUs on the market will only continue to grow as time passes, \
 and the same goes for network speeds and you will have to do your own testing and benchmarking.
 
