@@ -64,7 +64,7 @@ This does however mean that for the duration of the transfer, the sending machin
 will have a core pinned to compress the data, and data will only be transferred as fast as it can compress.
 In my testing, the throughput of the algorithm is somewhere between 20-80MB/s.
 
-If you will not be tramsferring over that speed, you probably should use compression, \
+If you will not be transferring over that speed, you probably should use compression, \
 if not, it will only make things slower.
 
 My testing will follow, \
