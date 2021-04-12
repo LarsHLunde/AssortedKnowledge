@@ -29,6 +29,16 @@ sudo reboot
 ```
 sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-ping policykit-1 lsof dialog apt-utils software-properties-common psmisc
 ```
+
+## Full desktop
+Please do not do this on an instance with less than 2GB \
+and run the install basic above first
+```
+sudo apt update
+sudo apt install -y tigervnc-standalone-server mate-desktop-environment ubuntu-mate-themes firefox
+vncserver -geometry 1920x1080
+```
+
 ## Wireguard
 Use the agristan script, then make some alterations to /etc/wireguard/wg0.conf
 ```
