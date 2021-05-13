@@ -1,6 +1,6 @@
 # Install Syncplay server on Debian 10
 
-**WARNING : Your milage may vary with other debian based systems**
+**WARNING : Your milage may vary with other Debian based systems**
 
 ## User guide
 Once you have installed the software you run the command:
