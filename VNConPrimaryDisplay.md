@@ -11,3 +11,11 @@ Create a vncpasswd file
 
 Start the server in a screen  
 ```screen x0vncserver -passwordfile ~/.vnc/passwd -display :0```
+
+Added to /etc/rc.local
+```
+#!/bin/sh -e
+sleep 3
+screen -S vnc -fa -d -m x0vncserver -passwordfile ~/.vnc/passwd -display :0
+exit 0
+```
