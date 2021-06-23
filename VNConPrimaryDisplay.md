@@ -16,6 +16,6 @@ Added to /etc/rc.local
 ```
 #!/bin/sh -e
 sleep 3
-screen -S vnc -fa -d -m x0vncserver -passwordfile ~/.vnc/passwd -display :0
+/usr/sbin/runuser -l pyro -c 'screen -S vnc -fa -d -m x0vncserver -passwordfile ~/.vnc/passwd -display :0'
 exit 0
 ```
