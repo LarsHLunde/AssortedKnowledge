@@ -4,7 +4,7 @@ This guide was made for Ubuntu 16.04, but I am sure it can be adapted to any sys
 First install the dependencies:
 
 Ubuntu/Debian : ```sudo apt-get install -y build-essential libmpc-dev flex gcc-multilib```  
-OEL/RHEL : ```sudo yum groupinstall -y "development tools" && sudo yum install libmpc-devel flex-devel```  
+OEL/RHEL : ```sudo yum groupinstall -y "development tools" && sudo yum install -y libmpc-devel flex-devel```  
 
 Then download the latest package for Linux from under http://www.softether-download.com/files/softether/
 for example: 
