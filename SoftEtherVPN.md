@@ -33,6 +33,8 @@ After=network.target
 
 [Service]
 Type=forking
+Restart=on-failure
+RestartSec=5s
 ExecStart=/usr/local/vpnserver/vpnserver start
 ExecStop=/usr/local/vpnserver/vpnserver stop
 
