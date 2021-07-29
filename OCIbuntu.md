@@ -37,7 +37,7 @@ sudo reboot
 
 ## Install basics
 ```
-sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-ping policykit-1 lsof dialog apt-utils software-properties-common psmisc
+sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-ping policykit-1 lsof dialog apt-utils software-properties-common psmisc systemd-cron
 ```
 
 ## Full desktop
