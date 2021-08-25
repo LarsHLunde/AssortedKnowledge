@@ -40,6 +40,12 @@ sudo reboot
 sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-ping policykit-1 lsof dialog apt-utils software-properties-common psmisc systemd-cron
 ```
 
+## Add new user
+```  
+useradd -m -s /bin/bash pyro
+usermod -a -G sudo pyro
+```  
+
 ## Full desktop
 Please do not do this on an instance with less than 2GB \
 and run the install basic above first
