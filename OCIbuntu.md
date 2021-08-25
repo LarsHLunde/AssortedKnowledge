@@ -47,6 +47,11 @@ usermod -a -G sudo pyro
 passwd pyro
 ```  
 
+## visudo nopass for user
+```  
+pyro ALL=(ALL) NOPASSWD: ALL
+```
+
 ## Full desktop
 Please do not do this on an instance with less than 2GB \
 and run the install basic above first
