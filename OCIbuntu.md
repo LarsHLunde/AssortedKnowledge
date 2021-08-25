@@ -44,6 +44,7 @@ sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-pin
 ```  
 useradd -m -s /bin/bash pyro
 usermod -a -G sudo pyro
+passwd pyro
 ```  
 
 ## Full desktop
