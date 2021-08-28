@@ -37,7 +37,7 @@ sudo reboot
 
 ## Install basics
 ```
-sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-ping policykit-1 lsof dialog apt-utils software-properties-common psmisc systemd-cron curl
+sudo apt install -y vim nano build-essential telnet netcat net-tools iputils-ping policykit-1 lsof dialog apt-utils software-properties-common psmisc systemd-cron curl p7zip-full
 ```
 
 ## Add new user
