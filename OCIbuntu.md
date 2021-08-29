@@ -27,7 +27,12 @@ iptables -P FORWARD ACCEPT
 iptables -F 
 exit 0
 ```
-
+  
+Megaline of the one above  
+```  
+echo -e "#\!bin/sh -e \niptables -P INPUT ACCEPT \niptables -P OUTPUT ACCEPT \niptables -P FORWARD ACCEPT \niptables -F \nexit 0" | sudo tee /etc/rc.local && sudo chmod +x /etc/rc.local
+```  
+  
 ## Update and reboot
 ```
 sudo apt update 
