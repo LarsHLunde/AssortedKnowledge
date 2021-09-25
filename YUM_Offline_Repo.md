@@ -98,7 +98,8 @@ repolist: 0
 ```  
 Then we create our own repo files in the same directory for our local repos:  
 ```
-vi /etc/yum.repos.d/local-ol7.repo```  
+vi /etc/yum.repos.d/local-ol7.repo
+```
 ```
 [local-repo-ol7]
 name=LocalOL7
@@ -107,7 +108,8 @@ enabled=1
 gpgcheck=0
 ```  
 ```
-vi /etc/yum.repos.d/local-uekr6.repo```  
+vi /etc/yum.repos.d/local-uekr6.repo
+```
 ```
 [local-repo-uekr6]
 name=LocalUEKR6
@@ -132,7 +134,7 @@ We have a lot fewer packages this time, because we used the ```--newest-only``` 
 we cloning the repos, or the package would be 5-10 times bigger.  
   
 You can now install any package like you had those repos online, without being online.  
-Even really complex ones like this:
+Even really complex ones like this:  
 [yum install -y oracle-database-preinstall-19c](resources/prereq_output.md)
   
 or a full update:  
