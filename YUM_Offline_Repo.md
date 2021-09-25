@@ -40,12 +40,12 @@ yum install -y yum-utils createrepo
 Then we need to see which repos are available to the system,  
 this will vary by system, and you may not want to include all of them.  
 ```
-[root@localhost ~]$ yum repolist
 Loaded plugins: ulninfo
-repo id                                                             repo name                                                                                                                           status
-ol7_UEKR6/x86_64                                                    Latest Unbreakable Enterprise Kernel Release 6 for Oracle Linux 7Server (x86_64)                                                       413
-ol7_latest/x86_64                                                   Oracle Linux 7Server Latest (x86_64)                                                                                                23,100
+repo id           repo name                                                                    status
+ol7_UEKR6/x86_64  Latest Unbreakable Enterprise Kernel Release 6 for Oracle Linux 7Server (x86    413
+ol7_latest/x86_64 Oracle Linux 7Server Latest (x86_64)                                         23,100
 repolist: 23,513
+
 ```  
 In our case there's only 2, and only one is essential, we will however include both.  
 We will be creating a new folder at ```/repo``` to do all our work in.  
@@ -81,12 +81,12 @@ tar xvf updates.tar.gz
 Then we need to disable all online, and therefore unusable, repos,  
 as they will wait for timeout or make the system refuse to update at all.  
 ```
-[root@localhost ~]$ yum repolist
 Loaded plugins: ulninfo
-repo id                                                             repo name                                                                                                                           status
-ol7_UEKR6/x86_64                                                    Latest Unbreakable Enterprise Kernel Release 6 for Oracle Linux 7Server (x86_64)                                                       413
-ol7_latest/x86_64                                                   Oracle Linux 7Server Latest (x86_64)                                                                                                23,100
+repo id           repo name                                                                    status
+ol7_UEKR6/x86_64  Latest Unbreakable Enterprise Kernel Release 6 for Oracle Linux 7Server (x86    413
+ol7_latest/x86_64 Oracle Linux 7Server Latest (x86_64)                                         23,100
 repolist: 23,513
+[root@localhost repo]#
 ```  
 find their coresponding repo files under ```/etc/yum.repos.d/```  
 and set their enabled flag to 0, once you have done that for all repos,  
@@ -121,17 +121,14 @@ Run repolist again to see that yum is happy with the changes:
 ``` 
 [root@localhost repo]# yum repolist
 Loaded plugins: ulninfo
-local-repo-ol7                                                                                                                                                                         | 2.9 kB  00:00:00
-local-repo-uekr6                                                                                                                                                                       | 2.9 kB  00:00:00
-(1/2): local-repo-uekr6/primary_db                                                                                                                                                     | 1.0 MB  00:00:00
-(2/2): local-repo-ol7/primary_db                                                                                                                                                       | 4.5 MB  00:00:00
-repo id                                                                                                repo name                                                                                        status
-local-repo-ol7                                                                                         LocalOL7                                                                                         5,448
-local-repo-uekr6                                                                                       LocalUEKR6                                                                                          85
+repo id                                           repo name                                    status
+local-repo-ol7                                    LocalOL7                                     5,448
+local-repo-uekr6                                  LocalUEKR6                                      85
 repolist: 5,533
+
 ```  
 We have a lot fewer packages this time, because we used the ```--newest-only``` flag,  
-we cloning the repos, or the package would be 5-10 times bigger.  
+when cloning the repos, or the package would be 5-10 times bigger.  
   
 You can now install any package like you had those repos online, without being online.  
 Even really complex ones like this:  
