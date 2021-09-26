@@ -150,4 +150,120 @@ Even really complex ones like this:
 or a full update:  
 [yum update -y](resources/update_output.md)
 
+## Custom package setups
+In some cases, you need to make custom repos,  
+one good example of this is that cloning the entire Oracle Linux 8 appstream repo,  
+or the EPEL repo, will simply take too much time and space to do in this fashion.  
+  
+In these cases, the easiest and best way to do so is by making a new custom repo.  
+In this example I will be creating a repo just for ```oracle-database-preinstall-19c```,  
+as it does not come with the baseos repo for Oracle Linux 8, but the appstream.  
+Since the process seems to be a bit different on Oracle Linux 7,  
+I will also do it with gparted from the EPEL repo.   
+  
+### Oracle Linux 8  
+We start by creating a new repo folder called ol8_custom, with the same structure  
+as the official repo clones use, and use yumdownloader to download all the packages.  
+It was at this stage I ran in to a real complication, and concluded the best course  
+of action is to just install the package on the seed system to make it easier  
+and just reinstall all the packages or else you will need to make your own function for it:  
+
+```
+yum install -y yum-utils createrepo
+mkdir -p /repo/ol8_custom/getPackage
+yum install -y oracle-database-preinstall-19c
+repoquery --requires --resolve --recursive oracle-database-preinstall-19c | xargs yum reinstall -y --downloadonly --downloaddir=/repo/ol8_custom/getPackage
+```  
+And you can do this for as many packages as you wish, there will be some duplicates between  
+the baseos package and this custom package, but it will be fully resolved, releaving much headache.  
+Then we just create a repo from it and zip it:  
+```
+createrepo /repo/ol8_custom/
+cd /repo
+tar -czvf updates.tar.gz ./*
+```  
+On the deployment system, I will disable all repos not the custom one,  
+and install ```oracle-database-preinstall-19c```  
+
+```
+vi /etc/yum.repos.d/local-custom.repo
+```
+```
+[local-repo-custom]
+name=LocalCustom
+baseurl=file:///repo/ol8_custom
+enabled=1
+gpgcheck=0
+```  
+And it works a treat : [yum install oracle-database-preinstall-19c](resources/custom_ol8.md)
+
+### Oracle Linux 7
+Was much more resilient to my atempts of making a custom repo,  
+and after much tinkering I have concluded you need the whole base-repo with newest,  
+like outlined at the start of the article, and then add on packages from other repos.  
+  
+As a direct consequence, no deployment package will be under 4.5-5GB,  
+but we will take it from the top by installing dependencies, including EPEL:  
+```
+yum install -y yum-utils createrepo oracle-epel-release-el7
+```  
+and create the 2 base repos like we did previously:  
+```  
+reposync -l --newest-only --repoid=ol7_latest --download_path=/repo
+reposync -l --newest-only --repoid=ol7_UEKR6 --download_path=/repo
+```  
+then we create the new repo folder and install our gparted package in download only mode  
+```
+mkdir -p /repo/ol7_custom/getPackage
+yum install -y --downloadonly --downloaddir=/repo/ol7_custom/getPackage gparted
+```  
+then we create the repos and compress everything  
+```
+createrepo /repo/ol7_latest/
+createrepo /repo/ol7_UEKR6/
+createrepo /repo/ol7_custom/
+cd /repo
+tar -czvf updates.tar.gz ./*
+```  
+  
+Transfer to deployment machine and untar
+```
+mdkir /repo
+cd /repo
+tar xvf updates.tar.gz
+```  
+and disable the other repos, and add the config files for the local ones.  
+```
+vi /etc/yum.repos.d/local-ol7.repo
+```
+```
+[local-repo-ol7]
+name=LocalOL7
+baseurl=file:///repo/ol7_latest
+enabled=1
+gpgcheck=0
+```  
+```
+vi /etc/yum.repos.d/local-uekr6.repo
+```
+```
+[local-repo-uekr6]
+name=LocalUEKR6
+baseurl=file:///repo/ol7_UEKR6
+enabled=1
+gpgcheck=0
+```  
+```
+vi /etc/yum.repos.d/local-custom.repo
+```
+```
+[local-repo-custom]
+name=LocalCustom
+baseurl=file:///repo/ol7_custom
+enabled=1
+gpgcheck=0
+```  
+Always double-check the ```yum repolist``` and we a off to the races:  
+[yum install gparted](resources/custom_ol7.md)
+
 Happy Linuxing  
