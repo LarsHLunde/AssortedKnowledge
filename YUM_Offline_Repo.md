@@ -57,10 +57,11 @@ reposync -l --newest-only --repoid=ol7_latest --download_path=/repo
 reposync -l --newest-only --repoid=ol7_UEKR6 --download_path=/repo
 ```  
 on Oracle Linux 8  
+I decided  to not include appstream repo,  
+because even with newest it's over 40GB.  
 ```
 reposync --newest-only --repoid=ol8_UEKR6 -p /repo
 reposync --newest-only --repoid=ol8_baseos_latest -p /repo
-reposync --newest-only --repoid=ol8_appstream -p /repo
 ```  
 Adjusting the repoid's and amount for whatever is applicable for your system.  
 Then we need to make the syncronized repos in to normal real repos,  
@@ -68,6 +69,11 @@ which mostly entails creating sqlite databases, metadata and versioning.
 ```
 createrepo /repo/ol7_latest/
 createrepo /repo/ol7_UEKR6/
+```  
+on Oracle Linux 8  
+```
+createrepo /repo/ol8_baseos_latest/
+createrepo /repo/ol8_UEKR6/
 ```  
 Congratulations! You now have 2 full and completely working local repos!  
 Now we need to zip it and ship it, or tar it because Oracle Linux 7  
