@@ -40,6 +40,7 @@ yum install -y yum-utils createrepo
 Then we need to see which repos are available to the system,  
 this will vary by system, and you may not want to include all of them.  
 ```
+[root@localhost repo]# yum repolist
 Loaded plugins: ulninfo
 repo id           repo name                                                                    status
 ol7_UEKR6/x86_64  Latest Unbreakable Enterprise Kernel Release 6 for Oracle Linux 7Server (x86    413
