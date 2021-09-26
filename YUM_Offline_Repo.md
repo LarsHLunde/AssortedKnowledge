@@ -56,6 +56,12 @@ From here we need to sync all the repos we want to the repo folder, with the fol
 reposync -l --newest-only --repoid=ol7_latest --download_path=/repo
 reposync -l --newest-only --repoid=ol7_UEKR6 --download_path=/repo
 ```  
+on Oracle Linux 8  
+```
+reposync --newest-only --repoid=ol8_UEKR6 -p /repo
+reposync --newest-only --repoid=ol8_baseos_latest -p /repo
+reposync --newest-only --repoid=ol8_appstream -p /repo
+```  
 Adjusting the repoid's and amount for whatever is applicable for your system.  
 Then we need to make the syncronized repos in to normal real repos,  
 which mostly entails creating sqlite databases, metadata and versioning.  
