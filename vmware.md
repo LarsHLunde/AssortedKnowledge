@@ -8,4 +8,5 @@ reboot
 sudo yum install -y oracle-epel-release-el8
 sudo yum groupinstall -y "development tools"
 sudo yum install -y fonts-tweak-tool libXtst xauth kernel-devel libaio libaio-devel
+https://github.com/mkubecek/vmware-host-modules/tree/workstation-16.1.2
 ```
