@@ -3,7 +3,7 @@
 ## Install virtualization package
 
 ```
-sudo yum module install virt
+sudo yum module install -y virt
 sudo dnf install -y virt-install virt-viewer
 sudo dnf install -y cockpit cockpit-machines
 ```  
