@@ -5,6 +5,9 @@
 ## UFW config
 ```
 echo -e "y\n" | ufw reset
+echo -e "y\n" | ufw delete 1
+echo -e "y\n" | ufw delete 1
+echo -e "y\n" | ufw delete 1
 ufw allow in to any port 22 from 192.168.0.0/24
 ufw allow in to any port 3128 from 192.168.0.0/24
 ufw allow out from any to any port 443
