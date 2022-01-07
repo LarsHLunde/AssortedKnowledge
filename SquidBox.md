@@ -20,7 +20,7 @@ ufw status verbose
 ```
 http_access allow localhost manager
 http_access deny manager
-acl whitelist dstdomain .redhat.com  wiki.squid-cache.org .debian.org
+acl whitelist dstdomain .redhat.com  wiki.squid-cache.org .debian.org .oracle.com
 http_access allow whitelist
 http_access deny all
 http_port 3128
