@@ -2,6 +2,13 @@
 
 ## This is currently a stub  
   
+## OEL nmcli config
+```
+sudo nmcli con mod ens33 ipv6.method ignore
+nmcli con mod ens33 ipv4.dns "1.1.1.1 8.8.8.8"
+reboot
+``` 
+
 ## UFW config
 ```
 echo -e "y\n" | ufw reset
