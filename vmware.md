@@ -8,5 +8,28 @@ reboot
 sudo yum install -y oracle-epel-release-el8
 sudo yum groupinstall -y "development tools"
 sudo yum install -y fonts-tweak-tool libXtst xauth kernel-devel libaio libaio-devel
-https://github.com/mkubecek/vmware-host-modules/tree/workstation-16.1.2
+cd
+git clone -b workstation-16.2.1 https://github.com/mkubecek/vmware-host-modules.git
+cd vmware-host-modules/
+sudo tar -cf vmmon.tar vmmon-only
+sudo tar -cf vmnet.tar vmnet-only
+sudo cp vmmon.tar vmnet.tar /usr/lib/vmware/modules/source/
+cd 
+rm -rf vmware-host-modules/
+```
+
+## CentOS/fedora/Rocky
+
+```
+sudo yum install -y epel-release
+sudo yum groupinstall -y "development tools"
+sudo yum install -y fonts-tweak-tool libXtst xauth kernel-devel libaio libaio-devel
+cd
+git clone -b workstation-16.2.1 https://github.com/mkubecek/vmware-host-modules.git
+cd vmware-host-modules/
+sudo tar -cf vmmon.tar vmmon-only
+sudo tar -cf vmnet.tar vmnet-only
+sudo cp vmmon.tar vmnet.tar /usr/lib/vmware/modules/source/
+cd 
+rm -rf vmware-host-modules/
 ```
