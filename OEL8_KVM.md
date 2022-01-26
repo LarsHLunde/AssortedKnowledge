@@ -29,3 +29,5 @@ firewall-cmd --add-service=cockpit --permanent
 firewall-cmd --reload
 ```  
 Cockpit should now be running on port 9090
+
+Remember to make any repos owned by qemu user
