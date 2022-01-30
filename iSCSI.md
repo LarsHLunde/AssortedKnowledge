@@ -236,10 +236,48 @@ The iSCSI protocol, at least in this example works on an access list system,
 so we will not be able to test it properly until we get some initiators that can connect.  
 
 ## Setting up an initiator
-Setting up an initiator is far easier, but is a topic worth covering as well: 
+Setting up an initiator is far easier, but is a topic worth covering as well.
 
+I've searched high and low for a better way to do this, but I came up short.  
 
+First we need to install the prerequisites:
+``` 
+yum install -y iscsi-initiator-utils
+```  
+and enable the services that got generated:  
+```
+systemctl enable iscsid --now
+systemctl enable iscsiuio --now
+```  
 
+Next we need to chekc if we can connect and talk to the target:  
+```
+iscsiadm -m discovery -t sendtargets -p 192.168.122.2
+```  
+You should get something like this back:  
+```
+[root@localhost ~]# iscsiadm -m discovery -t sendtargets -p 192.168.122.2
+192.168.122.2:3260,1 iqn.2003-01.org.linux-iscsi.localhost.x8664:sn.f5f241f2c3a3
+[root@localhost ~]#
+```  
+
+If not please review the troubleshooting section on the bottom of the article.
+
+All initiators have an intiator name that needs to be whitelisted in the target.
+
+To find yours, run ```cat /etc/iscsi/initiatorname.iscsi``` :  
+```
+[root@localhost ~]# cat /etc/iscsi/initiatorname.iscsi
+InitiatorName=iqn.1988-12.com.oracle:d83691dc4b2
+[root@localhost ~]#
+```  
+And write it down for the next part.
+
+## Connecting the target and initiator
+In the fist section of the guide, you may have noticed there was a section named ACLs  
+this stands for Access Control Lists, which is the way we whitelist a computer  
+to use the iSCSI share. This can be combined with CHAP, a user/pass system,  
+but that is outside the scope of this article, we will just use subnets and ACLs.  
 
 
 
@@ -252,5 +290,6 @@ configure later on your own time.
 [^2]: The portal as you can see in the list listens on all ports  
 this is bad practice security wise and could be catastrophic in  
 a scenario where you want to force it over a specific interface.  
+
 
 
