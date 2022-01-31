@@ -66,4 +66,15 @@ This part is just an order of operations task.
 
 Your datacenter should now be up
 
+## Getting the guest tools
+The ovirt virtual hardware doesn't play nice with windows,  
+and it doesn't come with the gues agent by default, so it needs to be installed.  
+
+Download the iso from the repo with:  
+```
+yum install -y ovirt-guest-tools-iso
+``` 
+Download it from the OLVM server, the file is located at ```/usr/share/ovirt-guest-tools-iso```,  
+and upload it to the repo like normal, it can now be mounted as a CD to the VM.  
+
 
