@@ -32,7 +32,7 @@ Last but not least we need to enable the service:
 systemctl enable target --now
 ```  
 
-### Setttng up the target
+### Setting up the target
 
 The first task on the agenda is to link your drive  
 in to the iSCSI target list, so in your terminal write:
@@ -339,6 +339,19 @@ iscsiadm -m discoverydb -t sendtargets -p 192.168.122.2:3260 -o delete
 The first line kills your session to the iSCSI share,
 the second removes it from your node list, it doesn't always show up on there,
 and the third removes it from your discovery database, leaving you with a clean slate.
+
+### Preveting the LVM from killing your share on reboot
+This is a lovely interaction I found that breaks the system.  
+If an initiator creates and LVM and the target system detects it,  
+it will break the share upon reboot, so we have to add it to the LVM blacklist.  
+
+Open the LVM config file with ```vi /etc/lvm/lvm.conf``` and go down the file  
+until you find a section with ```filter = ``` where we need to add the following:
+```
+filter = [ "r|/dev/vdb|" ]
+```  
+but instead of ```/dev/vdb``` it's whatever drive you are sharing.
+
 
 ## Troubleshooting
 ### Setup configuration
