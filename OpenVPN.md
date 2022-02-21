@@ -1,7 +1,7 @@
 # Setting up site2site OpenVPN
 
 ## Generate a key
-openvpn --genkey --secret secret.key
+```openvpn --genkey --secret secret.key```  
 
 ## Server side
 ```
