@@ -31,7 +31,7 @@ log-append /tmp/openvpn.log
 dev tun
 proto udp
 lport  1194
-remote 141.144.207.15
+remote <SERVER IP>
 rport  1194
 
 secret secret.key 1
