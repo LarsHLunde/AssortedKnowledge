@@ -49,6 +49,11 @@ daemon
 log-append /tmp/openvpn.log
 ```  
 
+## Starting tunnel
+```
+openvpn --config tunnel.cfg
+```  
+
 ## Adding manual routes
 ```
 ip ro add 10.251.0.0/24 via 10.200.0.1
