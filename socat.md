@@ -1,4 +1,4 @@
-# socat cookbook
+# Socat Cookbook
 ## Adding SSL to HTTP server
 ```
 openssl req -new -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out socat.crt -keyout socat.key
