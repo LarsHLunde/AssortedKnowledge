@@ -36,7 +36,7 @@ http_access deny all
 http_port 3128
 ```  
 
-## Reolve
+## Resolve
 /etc/resolv.conf  
 ```
 domain home
