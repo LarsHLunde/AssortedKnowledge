@@ -14,7 +14,7 @@ With bind address:
 ```
 socat tcp-l:2222,reuseaddr,fork,bind=10.213.3.2 tcp:172.22.2.60:22
 ```
-UDP (untested):  
+UDP :  
 ```
 socat udp-l:55555,reuseaddr,fork udp:172.22.2.60:55555
 ``` 
