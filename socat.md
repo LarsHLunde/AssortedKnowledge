@@ -25,5 +25,5 @@ socat tcp-l:80,fork,reuseaddr exec:'echo "Hello world\n"'
 ```  
 From file:  
 ```
-socat tcp-l:4443,fork,reuseaddr file:'test.html'
+socat tcp-l:4443,fork,reuseaddr exec:'cat test.html'
 ```  
