@@ -27,3 +27,33 @@ From file:
 ```
 socat tcp-l:4443,fork,reuseaddr exec:'cat test.html'
 ```  
+Basic webpage:  
+test.html: 
+```
+HTTP/1.0 200
+ContentType: text/html
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body>
+        <p>This is an example of a simple HTML page with one paragraph.</p>
+    </body>
+</html>
+```  
+```
+socat tcp-l:4443,fork,reuseaddr exec:'cat test.html'
+```
+Serving a binary file:  
+headers.txt:  
+```
+HTTP/1.0 200
+ContentType: application/octet-stream
+Content-Disposition: inline; filename="file.zip"
+
+```  
+```
+socat tcp-l:4443,fork,reuseaddr exec:'cat headers.txt file.zip'
+```  
