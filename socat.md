@@ -52,7 +52,6 @@ headers.txt:
 HTTP/1.0 200
 ContentType: application/octet-stream
 Content-Disposition: inline; filename="file.zip"
-
 ```  
 ```
 socat tcp-l:4443,fork,reuseaddr exec:'cat headers.txt file.zip'
