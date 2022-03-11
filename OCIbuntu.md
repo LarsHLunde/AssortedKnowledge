@@ -63,7 +63,7 @@ and run the install basic above first
 ```
 sudo apt update
 sudo apt install -y tigervnc-standalone-server mate-desktop-environment ubuntu-mate-themes firefox
-vncserver -geometry 1920x1080
+vncserver -localhost no -geometry 1920x1080 
 ```
 
 ## Wireguard
