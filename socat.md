@@ -3,6 +3,7 @@
 ```
 [program:socat-http-to-https-443]
 command = socat ssl-l:443,cert=socat.crt,key=socat.key,verify=0,fork,reuseaddr tcp4:127.0.0.1:80
+directory=/root/.certs
 autorestart = true
 user = root
 ```
