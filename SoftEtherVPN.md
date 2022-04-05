@@ -43,8 +43,8 @@ WantedBy=multi-user.target
 ```
 Enable, start and start the config tool:
 ```
-sudo systemctl enable vpnserver 
-sudo service vpnserver start 
+sudo systemctl enable vpnserver --now
+sudo service vpnserver status
 sudo ./vpncmd
 ```
 
