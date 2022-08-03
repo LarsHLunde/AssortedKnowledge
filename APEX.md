@@ -399,4 +399,4 @@ Created symlink from /etc/systemd/system/graphical.target.wants/ords.service to 
 
 The frontend should now be running on the server on port 8080.
 The first time you log in, you need to log in as admin on the internal workspace:  
-
+![APEX login](https://github.com/LarsHLunde/AssortedKnowledge/raw/main/resources/firefox_2022-08-03_14-16-22.png)
