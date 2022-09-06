@@ -1,7 +1,7 @@
 # How to get a VNC connection on your primary screen
 
 Install tigervnc-scraping-server and screen  
-```sudo apt-get install sceen tigervnc-scraping-server```  
+```sudo apt-get install screen tigervnc-scraping-server```  
 
 Create a vnc config directory  
 ```mkdir -p /.vnc```  
