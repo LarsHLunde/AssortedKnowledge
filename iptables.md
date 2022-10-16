@@ -1,6 +1,6 @@
 # IPtables library
 
-## Emulate no secure environment
+## Emulate secure environment
 ```  
 iptables -F
 iptables -I INPUT -s 192.168.111.0/24 -j ACCEPT
