@@ -56,6 +56,7 @@ The rest of this section is to be done entirely as the oracle user:
   
 Run the following commands:
 ```
+sudo cp .Xauthority /home/oracle/.Xauthority && sudo chown oracle:oinstall /home/oracle/.Xauthority && sudo su - oracle
 export ORACLE_HOME=/opt/oracle/product/21c/dbhomeXE/
 export PATH=$ORACLE_HOME/bin:$PATH
 dbca
