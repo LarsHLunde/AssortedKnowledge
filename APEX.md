@@ -33,14 +33,6 @@ First we need to install the prerequisites package with:
 ```
 yum install -y oracle-database-preinstall-21c
 ``` 
-The script isn't great, so we need to run some manual code to make the user work correctly:  
-(all done as root)  
-```
-cd
-mkdir /home/oracle
-cp -f .bashrc .bash_profile /home/oracle
-chown oracle:oinstall -R /home/oracle
-```
 
 ## Installing Database
 As root, install the Oracle Database XE rpm file you downloaded from the link above:  
