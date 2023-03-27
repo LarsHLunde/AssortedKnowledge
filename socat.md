@@ -13,6 +13,11 @@ openssl req -new -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out socat.crt
 socat ssl-l:443,cert=socat.crt,key=socat.key,verify=0,fork,reuseaddr tcp4:127.0.0.1:80
 ```  
 
+## Removing SSL from HTTPS server
+```  
+socat tcp-l:8080,fork,reuseaddr ssl:google.com:443
+```  
+
 ## Basic transparent proxies
 Normal:  
 ```
