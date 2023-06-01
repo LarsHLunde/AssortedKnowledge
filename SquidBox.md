@@ -36,6 +36,15 @@ http_access deny all
 http_port 3128
 ```  
 
+```
+acl localnet src 10.0.0.0/8
+http_access allow localnet all
+http_access allow localhost manager
+http_access deny manager
+http_access allow all
+http_port 3128
+```
+
 ## Resolve
 /etc/resolv.conf  
 ```
