@@ -164,3 +164,6 @@ and enable/run it:
 systemctl daemon-reload
 systemctl enable novnc --now
 ```
+
+noVNC should now be available on port 6080:  
+[https://olvm-engine.local:6080/](https://olvm-engine.local:6080/)
