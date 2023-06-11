@@ -8,7 +8,7 @@ which will provide us with all the packets we need.
 ```
 sudo dnf install -y oracle-epel-release-el8
 ```  
-## Installing packages
+## Installing packages and firewall
 
 The second step is installing all the dependencies  
 and all the packets MATE needs to operate normally through VNC:  
@@ -21,6 +21,12 @@ as well as some tools I need for the setup I need this for:
   
 ```
 sudo dnf install -y virt-viewer firefox
+```  
+  
+Finally we open the firewall for VNC:  
+```
+sudo firewall-cmd --permanent --add-port=5901/tcp
+sudo firewall-cmd --reload
 ```  
   
 ## Generating and modifying config
