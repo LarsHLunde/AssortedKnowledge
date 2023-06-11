@@ -123,9 +123,44 @@ User=root
 
 # Clean any existing files in /tmp/.X11-unix environment
 ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
-ExecStart=/usr/bin/vncserver -geometry 1800x1000
+ExecStart=/usr/bin/vncserver -geometry 1900x900
 ExecStop=/usr/bin/vncserver -kill %i
 
 [Install]
 WantedBy=multi-user.target
+```
+
+## Optionally install noVNC
+Why use VNC when you could use noVNC!  
+noVNC basically turns VNC in to a website using html5 and canvas.  
+  
+First install noVNC from the repo:  
+```
+sudo dnf install -y novnc
+```    
+  
+Then generate an some certificates for encryption:  
+```
+openssl req -new -newkey rsa:4096 -x509 -sha256 -days 3650 -nodes -out /root/novnc.pem -keyout /root/novnc.pem
+```  
+  
+Install a new service for noVNC by putting the following in /etc/systemd/system/novnc.service
+```
+[Unit]
+Description=noVNC service
+After=vncserver@:1.service
+
+[Service]
+Type=simple
+Restart=always
+User=root
+ExecStart=/usr/bin/websockify --web=/usr/share/novnc/ --cert=/root/novnc.pem 6080 localhost:5901 
+
+[Install]
+WantedBy=multi-user.target
+```  
+and enable/run it:  
+```
+systemctl daemon-reload
+systemctl enable novnc --now
 ```
