@@ -165,5 +165,11 @@ systemctl daemon-reload
 systemctl enable novnc --now
 ```
 
+Finally we open the firewall for noVNC:  
+```
+sudo firewall-cmd --permanent --add-port=6080/tcp
+sudo firewall-cmd --reload
+```  
+
 noVNC should now be available on port 6080:  
 [https://olvm-engine.local:6080/](https://olvm-engine.local:6080/)
