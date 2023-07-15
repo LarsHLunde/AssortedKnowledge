@@ -3,6 +3,12 @@
 sudo hostnamectl set-hostname example.com
 ```
 
+## Turn off Oracle Cloud Agent
+```
+systemctl disable snap.oracle-cloud-agent.oracle-cloud-agent-updater.service --now
+systemctl disable snap.oracle-cloud-agent.oracle-cloud-agent.service --now
+```
+
 ## Purge cloud-init
 ```
 echo 'datasource_list: [ None ]' | sudo -s tee /etc/cloud/cloud.cfg.d/90_dpkg.cfg 
