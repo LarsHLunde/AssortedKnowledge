@@ -55,7 +55,7 @@ echo 'alias ll="ls -l"' >> /etc/bash.bashrc
 ```  
 cd 
 rm -rf ./*
-docker system prune -a
+docker system prune -af
 ```  
 Build something:  
 ```
