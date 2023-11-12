@@ -51,3 +51,16 @@ and a couple of options I like for my instances:
 echo 'alias ll="ls -l"' >> /etc/bash.bashrc
 ```  
 
+## Full reset
+```  
+cd 
+rm -rf ./*
+docker system prune -a
+```  
+Build something:  
+```
+git clone ...
+cd ...
+docker build -t application .
+docker run -it application
+```
