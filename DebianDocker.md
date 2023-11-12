@@ -45,4 +45,9 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 I also prefer having docker-compose installed:  
 ``` 
 sudo apt-get install -y docker-compose
+```  
+and a couple of options I like for my instances:  
 ```
+echo 'alias ll="ls -l"' >> /etc/bash.bashrc
+```  
+
