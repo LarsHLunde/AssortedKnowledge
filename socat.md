@@ -14,10 +14,14 @@ socat ssl-l:443,cert=socat.crt,key=socat.key,verify=0,fork,reuseaddr tcp4:127.0.
 ```  
 
 ## Removing SSL from HTTPS server
+Signed Cert:  
 ```  
 socat tcp-l:8080,fork,reuseaddr ssl:google.com:443
 ```  
-
+Self Signed Cert  
+```  
+socat tcp-l:8080,fork,reuseaddr ssl:google.com:443,verify=0
+```  
 ## Basic transparent proxies
 Normal:  
 ```
