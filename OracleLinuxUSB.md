@@ -11,7 +11,7 @@ For this guide, you will need
 Open Rufus  
 1. Make sure you have the correct USB drive selected  
 2. Click select and locate your ISO  
-3. Once selected, make sure it says MBR
+3. Once selected, make sure it says MBR  
 ![image](https://github.com/LarsHLunde/AssortedKnowledge/assets/5747758/7dc63ac1-0a3e-4bef-98c5-ca9d43f9cdf2)
 
 Once all settings are in, click start,  
