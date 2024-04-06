@@ -19,6 +19,8 @@ there may come a warning, just click ok:
 
 ![image](https://github.com/LarsHLunde/AssortedKnowledge/assets/5747758/acbd2a98-2870-470f-950c-a17d783751fc)
 
+### Write in ISO mode
+
 Tested with vmware and plopkexex:  
 https://www.plop.at/en/plopkexec/full.html  
 and on real hardware.  
