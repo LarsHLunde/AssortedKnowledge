@@ -15,11 +15,11 @@ Open Rufus
 ![image](https://github.com/LarsHLunde/AssortedKnowledge/assets/5747758/7dc63ac1-0a3e-4bef-98c5-ca9d43f9cdf2)
 
 Once all settings are in, click start,  
-there may come a warning, just click ok:  
+there may come a warning, just click ok.  
 
+### Write in ISO mode!  
 ![image](https://github.com/LarsHLunde/AssortedKnowledge/assets/5747758/acbd2a98-2870-470f-950c-a17d783751fc)
 
-### Write in ISO mode
 
 Tested with vmware and plopkexex:  
 https://www.plop.at/en/plopkexec/full.html  
@@ -27,3 +27,4 @@ and on real hardware.
   
 - ODA baremetal OS ISO 19.22 (p30403643)  
 - Oracle Linux 7.9
+- Oracle Linux 8.8
