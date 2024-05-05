@@ -120,12 +120,14 @@ aptly mirror update jammy-updates-local
 aptly mirror update jammy-security-local
 ```  
 As of 05.05.2024 the sizes are:  
+(total is less due to overlapping packages)   
 | Repo | Size |
 | --- | --- |
 | jammy | 106G |
 | jammy-backports | 1GB |
 | jammy-updates | 240GB |
 | jammy-security | 234GB |
+| total | 363GB |
   
 The next step is to create the repo database files,  
 which will also take a huge amount of time and is best run in a screen.  
