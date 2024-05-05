@@ -57,10 +57,18 @@ cd
 rm -rf ./*
 docker system prune -af
 ```  
+Basic Ubuntu docker:  
+```  
+echo 'FROM ubuntu:latest' > Dockerfile
+echo 'RUN apt-get update' >> Dockerfile
+echo 'RUN echo "sleep infinity" > /init.sh' >> Dockerfile
+echo 'ENTRYPOINT ["/bin/bash", "/init.sh"]' >> Dockerfile
+``` 
 Build something:  
 ```
 git clone ...
 cd ...
 docker build -t application .
-docker run -it application
-```
+docker run -d -it application
+```  
+
