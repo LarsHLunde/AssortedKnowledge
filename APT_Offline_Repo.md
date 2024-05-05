@@ -129,16 +129,16 @@ As of 05.05.2024 the sizes are:
 | jammy-security | 234GB |
 | total | 363GB |
   
-The next step is to create the repo database files,  
-which will also take a huge amount of time and is best run in a screen.  
-This will take a moderate amount of time in the future instead of little time:  
+The next step is to create snapshots which are nearly instant:   
 ```  
 aptly snapshot create jammy-snapshot from mirror jammy-local
 aptly snapshot create jammy-backports-snapshot from mirror jammy-backports-local
 aptly snapshot create jammy-updates-snapshot from mirror jammy-updates-local
 aptly snapshot create jammy-security-snapshot from mirror jammy-security-local
 ```
-Finally we publish, which finalizes the repo (takes little time):  
+Finally we publish, which creates the database files,  
+which will also take a huge amount of time and is best run in a screen.  
+This will take a moderate amount of time in the future instead of little time: 
 ```
 aptly publish snapshot jammy-snapshot
 aptly publish snapshot jammy-backports-snapshot
