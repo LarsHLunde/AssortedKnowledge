@@ -45,6 +45,10 @@ and finally, run the install script:
 ```  
 yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```   
+and enable the service:  
+``` 
+systemctl enable docker --now
+``` 
 
 ## Full reset
 ```  
