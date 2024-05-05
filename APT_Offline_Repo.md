@@ -51,7 +51,7 @@ And then we move on to installing a newer version of Go:
 wget https://go.dev/dl/go1.21.6.linux-amd64.tar.gz
 tar -xvf go1.21.6.linux-amd64.tar.gz -C /usr/local
 echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile
-source ~/.profile 
+source ~/.bashrc
 ```  
 and finally install aptly:  
 ```  
@@ -69,7 +69,7 @@ gpg --default-new-key-algo rsa4096 --gen-key --keyring pubring.gpg
 then we add aptly to our path and generate the config file:  
 ```
 echo "export PATH=$PATH:/root/go/bin" >> ~/.profile
-source ~/.profile
+source ~/.bashrc
 aptly config show
 ```
 You can edit the line ```"rootDir": "/root/.aptly"``` to suit your needs and space requirements,  
