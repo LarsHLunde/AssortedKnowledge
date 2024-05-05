@@ -122,7 +122,7 @@ aptly mirror update jammy-security-local
 As of 05.05.2024 the sizes are:  
 | Repo | Size |
 | --- | --- |
-| jammy-local | 106G |
+| jammy | 106G |
 | jammy-backports | 1GB |
 | jammy-updates | 240GB |
 | jammy-security | 234GB |
