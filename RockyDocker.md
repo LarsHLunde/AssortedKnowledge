@@ -18,7 +18,12 @@ Then give passwordless sudo to your user of choice:
 u=pyro
 usermod -a -G sudo $u
 echo "$u ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/$u
+```  
+and turn off selinux:  
 ```
+setenforce 0
+sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+```  
 ## Installing docker
 
 First, remove the old packages that may be present:  
@@ -46,11 +51,18 @@ yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-co
 cd 
 rm -rf ./*
 docker system prune -af
+```
+Basic Ubuntu docker:  
 ```  
+echo 'FROM ubuntu:latest' > Dockerfile
+echo 'RUN apt-get update' >> Dockerfile
+echo 'RUN echo "sleep infinity" > /init.sh' >> Dockerfile
+echo 'ENTRYPOINT ["/bin/bash", "/init.sh"]' >> Dockerfile
+``` 
 Build something:  
 ```
 git clone ...
 cd ...
 docker build -t application .
-docker run -it application
-```
+docker run -d -it application
+```  
