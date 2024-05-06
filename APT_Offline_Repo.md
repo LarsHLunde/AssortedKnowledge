@@ -145,6 +145,34 @@ aptly publish snapshot jammy-backports-snapshot
 aptly publish snapshot jammy-updates-snapshot
 aptly publish snapshot jammy-security-snapshot
 ```  
+To update the packages in the repo, you update the mirror, then unpublish,  
+drop the snapshot, then recreate the snapshot and republish, like so:  
+```
+aptly mirror update jammy-local
+aptly mirror update jammy-backports-local
+aptly mirror update jammy-updates-local
+aptly mirror update jammy-security-local
+
+aptly publish drop jammy
+aptly publish drop jammy-backports
+aptly publish drop jammy-updates
+aptly publish drop jammy-security
+
+aptly snapshot drop jammy-snapshot
+aptly snapshot drop jammy-backports-snapshot 
+aptly snapshot drop jammy-updates-snapshot 
+aptly snapshot drop jammy-security-snapshot 
+
+aptly snapshot create jammy-snapshot from mirror jammy-local
+aptly snapshot create jammy-backports-snapshot from mirror jammy-backports-local
+aptly snapshot create jammy-updates-snapshot from mirror jammy-updates-local
+aptly snapshot create jammy-security-snapshot from mirror jammy-security-local
+
+aptly publish snapshot jammy-snapshot
+aptly publish snapshot jammy-backports-snapshot
+aptly publish snapshot jammy-updates-snapshot
+aptly publish snapshot jammy-security-snapshot
+```
 and if it's a local server that you want to serve, you serve:  
 ```
 aptly serve -listen=:8080
