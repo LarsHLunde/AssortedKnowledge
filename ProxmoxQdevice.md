@@ -68,7 +68,7 @@ Membership information
 0x00000001          1 192.168.111.110 (local)
 0x00000002          1 192.168.111.111
 ```
-Have 2 nodes with 1 quorom vote, which is correct.
+That you have 2 nodes with 1 quorom vote each, which is correct.
 So now we add a new qdevice with:  
 ```
 pvecm qdevice setup <QDEVICE-IP>
