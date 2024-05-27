@@ -12,18 +12,22 @@ Just for thoroughness I'll start with 2 fresh proxmox servers,
 and create a cluster from scratch.  
 
 On node 1, go to Datacenter -> Cluster -> Create cluster
+  
 ![image](https://github.com/LarsHLunde/AssortedKnowledge/assets/5747758/d2020063-47e7-4be0-8284-a2851e89ae69)  
 Call it something apropriate and save.  
 
 After the cluster is created, under the same menu,  
 find the join information button and copy the "join information" it presents:  
+  
 ![image](https://github.com/LarsHLunde/AssortedKnowledge/assets/5747758/3d88d4d7-eb25-47b7-8844-30b5a9ba2378)  
   
 On node 2, go to the same menus, but instead of creating a cluster, we are joining one:  
+  
 ![image](https://github.com/LarsHLunde/AssortedKnowledge/assets/5747758/5e4850f9-5ac0-462d-bd0f-d2613b22d833)  
 
 And paste in the join information, the process should take seconds.  
 Go back to the first node, and you should see 2 machines in the datacenter:  
+  
 ![image](https://github.com/LarsHLunde/AssortedKnowledge/assets/5747758/5d095914-494f-4716-bf7a-babbfd242615)  
   
 ## Installing pre-requisites
