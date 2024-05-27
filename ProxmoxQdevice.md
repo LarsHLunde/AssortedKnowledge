@@ -55,7 +55,7 @@ and paste them in to the ~/.ssh/authorized_keys file of the root user for the qd
 
 ## Adding the qdevice to the cluster
 From node 1, open the shell and type in:  
-```pvecm status```
+```pvecm status```  
 If you look at the last paragraph, it should say:  
 ```
 Membership information
