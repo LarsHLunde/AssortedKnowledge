@@ -78,9 +78,39 @@ After it's done, run the ```pvecm status``` command, and you should have 3 membe
 Membership information
 ----------------------
     Nodeid      Votes    Qdevice Name
+0x00000001          1    A,V,NMW 192.168.111.110 (local)
+0x00000002          1    A,V,NMW 192.168.111.111 
+0x00000000          1            Qdevice
+```  
+You can now set up high availability on your VMs  
+  
+If the qdevice shows up with no votes:  
+```
+Membership information
+----------------------
+    Nodeid      Votes    Qdevice Name
 0x00000001          1   A,NV,NMW 192.168.111.110 (local)
 0x00000002          1   A,NV,NMW 192.168.111.111
 0x00000000          0            Qdevice (votes 1)
 ```  
-You can now set up high availability on your VMs
-
+The HA will not work, and you need to remove the qdevice from the cluster:
+On one of the proxmox nodes: ```pvecm qdevice remove```  
+uninstall, reset the configs, delete certificates and reinstall on the qdevice node:  
+```
+apt remove -y --purge corosync-qdevice corosync-qnetd corosync
+rm -rf /etc/corosync/qdevice/net/nssdb
+apt install -y corosync-qdevice corosync-qnetd corosync
+```  
+and re-add to the cluster with force on a proxmox node:  
+```
+pvecm qdevice setup <QDEVICE-IP> -f
+``` 
+and it should look like this with ```pvecm status``` command on a proxmox node:  
+```
+Membership information
+----------------------
+    Nodeid      Votes    Qdevice Name
+0x00000001          1    A,V,NMW 192.168.111.110 (local)
+0x00000002          1    A,V,NMW 192.168.111.111 
+0x00000000          1            Qdevice
+```  
