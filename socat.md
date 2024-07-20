@@ -1,4 +1,26 @@
 # Socat Cookbook
+## Socat systemd service
+Add to a service file like ```/etc/systemd/system/socat.service```  
+```
+[Unit]
+Description=Socat Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/socat ssl-l:443,cert=socat.crt,key=socat.key,verify=0,fork,reuseaddr tcp4:127.0.0.1:80
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```  
+Then refresh systemd and activate:  
+``` 
+systemctl daemon-reload
+systectl enable socat --now
+systemctl status socat
+```   
 ## Socat supervisor service
 ```
 [program:socat-http-to-https-443]
