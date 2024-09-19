@@ -28,6 +28,23 @@ Make sure it shows the right year, month and CPU architecture (x64).
 Of special note is the fact that the patches are cumulative,  
 meaning they are **NOT** dependent on previous patches, and you could in theory patch a completely fresh system.  
 
-## Windows updates failing 
-It is surprisingly common that updates through the update manager fail or hang. 
+## Checking that the update was successful
+It is surprisingly common that updates through the update manager fail, hang or just don't complete without telling you.  
+To check that an update actually went through, go to Settings -> Windows Update -> Update History.  
+
+![image](https://github.com/user-attachments/assets/5b959f43-44f7-4d77-b7d0-6140eecb90ff)
+If the update you installed is not listed, first try to manually update the inventory,  
+by pausing updates for a week and then unpausing updates, then checking again:  
+![image](https://github.com/user-attachments/assets/537ae498-5870-4090-b42c-f4a814319f39)
+![image](https://github.com/user-attachments/assets/7f31bdf7-f39d-43ab-b0a6-bd5c1dc3953c)
+If the update is still not installed, please install the offline version,  
+then do the same procedure of pausing and unpausing updates to update the catalog.  
+
+Once the update shows up in the history, you will know the update installed successfully.  
+![image](https://github.com/user-attachments/assets/875fcf53-b43a-403d-8a50-8222210fa33b)
+
+
+
+
+
 
