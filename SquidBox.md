@@ -28,20 +28,23 @@ ufw status verbose
 ## Squid Config
 /etc/squid/squid.conf  
 ```
-http_access allow localhost manager
-http_access deny manager
-acl whitelist dstdomain .redhat.com  wiki.squid-cache.org .debian.org .oracle.com
-http_access allow whitelist
+acl localnet src 192.168.0.0/24
+
+
+acl allowed_domains dstdomain .oracle.com
+
+http_access allow localnet allowed_domains
 http_access deny all
+
 http_port 3128
 ```  
 
 ```
-acl localnet src 10.0.0.0/8
-http_access allow localnet all
-http_access allow localhost manager
-http_access deny manager
-http_access allow all
+acl allowed_network src 10.8.0.0/24
+
+http_access allow allowed_network
+http_access deny all
+
 http_port 3128
 ```
 
