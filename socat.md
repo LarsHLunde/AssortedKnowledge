@@ -18,7 +18,7 @@ WantedBy=multi-user.target
 Then refresh systemd and activate:  
 ``` 
 systemctl daemon-reload
-systectl enable socat --now
+systemctl enable socat --now
 systemctl status socat
 ```   
 ## Socat supervisor service
