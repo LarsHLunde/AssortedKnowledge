@@ -9,6 +9,7 @@ After=network-online.target
 
 [Service]
 Type=simple
+WorkingDirectory=/root/tls
 ExecStart=/usr/bin/socat ssl-l:443,cert=socat.crt,key=socat.key,verify=0,fork,reuseaddr tcp4:127.0.0.1:80
 Restart=always
 
