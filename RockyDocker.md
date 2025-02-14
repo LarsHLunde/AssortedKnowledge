@@ -1,4 +1,4 @@
-# Setting up Docker environment on Rocky 8
+# Setting up Docker environment on Rocky 8/9
 ## Intro
 I am planning on creating some of my own dockerized applications,  
 due to finding the designs I find online to be over-built,  
