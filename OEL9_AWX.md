@@ -24,9 +24,9 @@ openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -out ./base/tls.crt -keyout
 vi base/awx.yaml
 hostname: 192.168.0.158
 
-sudo mkdir -p /data/postgres-13
+sudo mkdir -p /data/postgres-15
 sudo mkdir -p /data/projects
-sudo chmod 755 /data/postgres-13
+sudo chmod 755 /data/postgres-15
 sudo chown 1000:0 /data/projects
 
 kubectl -n awx logs -f deployments/awx-operator-controller-manager
