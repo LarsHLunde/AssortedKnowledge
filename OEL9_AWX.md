@@ -28,6 +28,8 @@ sudo mkdir -p /data/postgres-15
 sudo mkdir -p /data/projects
 sudo chown 1000:0 /data/projects
 
+kubectl apply -k base
+
 kubectl -n awx logs -f deployments/awx-operator-controller-manager
 
 watch kubectl -n awx get awx,all,ingress,secrets
