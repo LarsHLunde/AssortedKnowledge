@@ -18,11 +18,11 @@ kubectl apply -k operator
 Wait for everything to be up:  
 watch kubectl -n awx get all  
 
-AWX_HOST="192.168.0.228"
+AWX_HOST="awx.pyro.lab"
 openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -out ./base/tls.crt -keyout ./base/tls.key -subj "/CN=${AWX_HOST}/O=${AWX_HOST}" -addext "subjectAltName = DNS:${AWX_HOST}"
 
 vi base/awx.yaml
-hostname: 192.168.0.228
+hostname: awx.pyro.lab
 
 sudo mkdir -p /data/postgres-15
 sudo mkdir -p /data/projects
