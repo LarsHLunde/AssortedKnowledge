@@ -38,7 +38,7 @@ def random_string(length=10):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
 try:
-    conn = psycopg2.connect(dbname="random_string_db", user="postgres")
+    conn = psycopg.connect(dbname="random_string_db", user="postgres")
     cur = conn.cursor()
     cur.execute("INSERT INTO random_strings (content) VALUES (%s)", (random_string(),))
     conn.commit()
