@@ -12,8 +12,8 @@ systemctl enable postgresql-16 --now
 systemctl status postgresql-16  
   
 ## Backup manager  
-yum install \*epel\*  
-yum install pgbackrest  
+yum install \*epel\* -y  
+yum install pgbackrest -y  
 
 mkdir -p /backup/pgbackrest/{archive,backup,conf}  
 chown -R postgres:postgres /backup/pgbackrest  
