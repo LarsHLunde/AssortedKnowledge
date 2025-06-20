@@ -37,6 +37,8 @@ CREATE TABLE random_strings (
     content TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+\q
 ```  
 
 vi random-strings.py  
