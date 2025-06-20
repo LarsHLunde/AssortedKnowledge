@@ -23,8 +23,8 @@ chown postgres:postgres /etc/pgbackrest.conf
 chmod 640 /etc/pgbackrest.conf  
 
 ## Random data table
-yum install python3-pip -y
-pip3 install psycopg
+yum install python3-pip -y  
+pip3 install psycopg  
 su - postgres  
 vi random-strings.py  
   
