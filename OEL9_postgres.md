@@ -1,0 +1,24 @@
+# Postgres on OEL9
+## Intro
+I'm writing this mostly for myself.  
+So it's gonna be quick and dirty.  
+  
+## Code
+dnf install https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm -y  
+dnf -qy module disable postgresql  
+dnf install postgresql16-server -y  
+/usr/pgsql-16/bin/postgresql-16-setup initdb  
+systemctl enable postgresql-16 --now   
+systemctl status postgresql-16  
+  
+## Backup manager  
+yum install \*epel\*  
+yum install pgbackrest  
+
+mkdir -p /backup/pgbackrest/{archive,backup,conf}  
+chown -R postgres:postgres /backup/pgbackrest  
+chmod 750 /backup/pgbackrest  
+touch /etc/pgbackrest.conf  
+chown postgres:postgres /etc/pgbackrest.conf  
+chmod 640 /etc/pgbackrest.conf  
+
