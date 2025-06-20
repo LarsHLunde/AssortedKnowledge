@@ -22,3 +22,34 @@ touch /etc/pgbackrest.conf
 chown postgres:postgres /etc/pgbackrest.conf  
 chmod 640 /etc/pgbackrest.conf  
 
+## Random data table
+yum install python3-pip -y
+pip3 install psycopg
+su - postgres  
+vi random-strings.py  
+  
+```
+#!/usr/bin/env python3
+import psycopg
+import random
+import string
+
+def random_string(length=10):
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+
+try:
+    conn = psycopg2.connect(dbname="random_string_db", user="postgres")
+    cur = conn.cursor()
+    cur.execute("INSERT INTO random_strings (content) VALUES (%s)", (random_string(),))
+    conn.commit()
+    cur.close()
+    conn.close()
+except Exception as e:
+    print("Error:", e)
+```  
+  
+python3 random-strings.py  
+crontab -e  
+```
+* * * * * python3 random-strings.py
+``` 
