@@ -26,6 +26,19 @@ chmod 640 /etc/pgbackrest.conf
 yum install python3-pip -y  
 pip3 install psycopg  
 su - postgres  
+psql  
+```
+CREATE DATABASE random_string_db;
+
+\c random_string_db
+
+CREATE TABLE random_strings (
+    id SERIAL PRIMARY KEY,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```  
+
 vi random-strings.py  
   
 ```
