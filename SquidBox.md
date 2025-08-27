@@ -48,6 +48,11 @@ http_access deny all
 http_port 3128
 ```
 
+## Fixing the service
+```
+KillSignal=SIGINT
+```   
+
 ## Resolve
 /etc/resolv.conf  
 ```
