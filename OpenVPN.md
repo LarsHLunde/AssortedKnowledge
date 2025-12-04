@@ -109,6 +109,33 @@ openvpn --config tunnel.cfg
 ip ro add 10.251.0.0/24 via 10.200.0.1
 ```
 
+# Systemd service
+```  
+[Unit]
+Description=OpenVPN Tunnel
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/etc/openvpn
+ExecStart=/usr/sbin/openvpn --config /etc/openvpn/tunnel.conf
+Restart=always
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+```  
+  
+Start up:  
+
+```
+sudo systemctl daemon-reload
+sudo systemctl restart openvpn-tunnel
+```  
+
+
 ## Notes
 Add individiaul ports for each tunnel.  
 Add invidividual log files for each tunnel.  
