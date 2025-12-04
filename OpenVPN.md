@@ -111,6 +111,9 @@ ip ro add 10.251.0.0/24 via 10.200.0.1
 
 # Systemd service
 ```  
+sudo vi /etc/systemd/system/openvpn-tunnel.service
+```  
+```  
 [Unit]
 Description=OpenVPN Tunnel
 After=network-online.target
