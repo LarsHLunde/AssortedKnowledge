@@ -77,10 +77,9 @@ log-append /tmp/openvpn.log
 ## Client side
 ```
 dev tun
-proto tcp-server          
-lport 443
-remote <CLIENT IP>
+proto tcp-client
 rport 443
+remote <SERVER IP>
 
 secret secret.key 1
 ifconfig 10.200.0.2 10.200.0.1
