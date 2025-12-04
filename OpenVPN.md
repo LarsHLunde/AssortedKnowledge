@@ -124,6 +124,7 @@ WorkingDirectory=/etc/openvpn
 ExecStart=/usr/sbin/openvpn --config /etc/openvpn/tunnel.conf
 Restart=always
 RestartSec=5
+RemainAfterExit=yes
 LimitNOFILE=65536
 
 [Install]
@@ -134,7 +135,9 @@ Start up:
 
 ```
 sudo systemctl daemon-reload
+sudo systemctl enable openvpn-tunnel
 sudo systemctl restart openvpn-tunnel
+sudo systemctl status openvpn-tunnel
 ```  
 
 
