@@ -3,6 +3,7 @@
 ## Generate a key
 ```openvpn --genkey --secret secret.key```  
 
+# UDP version
 ## Server side
 ```
 dev tun
@@ -48,6 +49,55 @@ verb 3
 daemon
 log-append /tmp/openvpn.log
 ```  
+# TCP verison
+
+## Server side
+```
+dev tun
+proto tcp-server          
+lport 443
+remote <CLIENT IP>
+rport 443
+
+secret secret.key 0
+ifconfig 10.200.0.1 10.200.0.2
+route 10.0.0.0 255.255.255.0
+
+persist-tun
+persist-key
+keepalive 10 60
+ping-timer-rem
+cipher AES-256-CBC
+
+verb 3
+daemon
+log-append /tmp/openvpn.log
+```  
+
+## Client side
+```
+dev tun
+proto tcp-server          
+lport 443
+remote <CLIENT IP>
+rport 443
+
+secret secret.key 1
+ifconfig 10.200.0.2 10.200.0.1
+route 10.251.0.0 255.255.255.0
+
+persist-tun
+persist-key
+keepalive 10 60
+ping-timer-rem
+cipher AES-256-CBC
+
+verb 3
+daemon
+log-append /tmp/openvpn.log
+```  
+
+# Both
 
 ## Starting tunnel
 ```
